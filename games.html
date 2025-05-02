@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Wordle Game</title>
+    <style>
+        .wordle-link {
+            position: fixed;
+            bottom: 20px;
+            right: 25px;
+            z-index: 1000;
+        }
+
+        .wordle-image {
+            width: 60px;
+            height: auto;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+
+        .hover-effect {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="wordle.html" class="wordle-link">
+        <img src="image_games/logo.png" alt="Wordle Game" class="wordle-image" />
+    </a>
+
+    <script>
+        document.querySelectorAll('.wordle-image').forEach(img => {
+            img.addEventListener('mouseenter', () => {
+                img.classList.add('hover-effect');
+            });
+            
+            img.addEventListener('mouseleave', () => {
+                img.classList.remove('hover-effect');
+            });
+        });
+    </script>
+</body>
+</html>
