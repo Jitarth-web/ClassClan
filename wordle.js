@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize the game board immediately
     initializeGame();
 
+    // Add new game button functionality
+    document.getElementById('new-game-btn').addEventListener('click', () => {
+        initializeGame();
+        showMessage('New game started!');
+    });
+
     // Function to initialize the game
     function initializeGame() {
         setupGameBoard();
