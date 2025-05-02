@@ -1,0 +1,594 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #e0f7fa, #e1bee7);
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* Upload (narrower) */
+.upload-section {
+    flex: 0.8;
+    background: linear-gradient(135deg, #ffffff 0%, #e3f2fd 100%);
+    padding: 30px 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* File viewer (broader) */
+.file-section {
+    flex: 2;
+    background: linear-gradient(135deg, #ffffff 0%, #fce4ec 100%);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
+    max-height: 85vh;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+    color: #444;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.custom-file-upload {
+    border: 2px dashed #00bcd4;
+    padding: 15px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #00bcd4;
+    font-weight: bold;
+    background: #e0f7fa;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.custom-file-upload:hover {
+    background-color: #b2ebf2;
+    color: #008ba3;
+    transform: scale(1.05);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+button {
+    background: linear-gradient(to right, #43cea2, #185a9d);
+    border: none;
+    padding: 10px 25px;
+    color: white;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(to right, #11998e, #0575e6);
+    transform: scale(1.05);
+}
+
+.file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.file-item {
+    background: linear-gradient(135deg, #f9fbe7 0%, #e8f5e9 100%);
+    padding: 20px;
+    /* Removed border-radius for full rectangular appearance */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.2s, background 0.3s;
+}
+
+.file-item:hover {
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+}
+
+.filename {
+    font-weight: 500;
+    color: #333;
+    max-width: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.download-btn {
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    background: linear-gradient(to right, #36d1dc, #5b86e5);
+    color: white;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.download-btn:hover {
+    background: linear-gradient(to right, #5b86e5, #36d1dc);
+    transform: scale(1.05);
+}
+
+/* File Name Text */
+#file-name {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+}
+
+.notes-container {
+    padding: 2rem 0;
+}
+
+.upload-container {
+    background: linear-gradient(135deg, #6B73FF 0%, #000DFF 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upload-container h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.upload-container p {
+    margin: 0.5rem 0 0;
+    opacity: 0.9;
+}
+
+.notes-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.upload-container {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.assignments-container {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.assignments-container h3 {
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.new-note-btn {
+    background: white;
+    color: #000DFF;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.new-note-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #f8f9fa;
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+}
+
+.note-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 13, 255, 0.06);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 13, 255, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.note-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 13, 255, 0.1);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #000DFF 0%, #0066FF 100%);
+    padding: 1.5rem;
+    border-bottom: none;
+    position: relative;
+}
+
+.card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
+    pointer-events: none;
+}
+
+.card-title {
+    color: white !important;
+    font-size: 1.2rem !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.note-meta {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.author i, .timestamp i {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 0.75rem;
+}
+
+.note-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: #64748b;
+}
+
+.author, .timestamp {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.author i, .timestamp i {
+    color: #4a5568;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.file-section {
+    background: rgba(0, 13, 255, 0.03);
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 1.2rem 0;
+    border: 2px dashed rgba(0, 13, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.file-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #000DFF, #0066FF);
+    opacity: 0.1;
+}
+
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.file-icon {
+    font-size: 1.5rem;
+    color: #4a5568;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.file-details {
+    flex: 1;
+}
+
+.file-name {
+    font-weight: 500;
+    color: #2d3748;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.file-type {
+    font-size: 0.75rem;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn i {
+    font-size: 0.9rem;
+}
+
+.btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.btn-download {
+    background: linear-gradient(135deg, #000DFF 0%, #0066FF 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(0, 13, 255, 0.2);
+}
+
+.btn-download:hover {
+    background: linear-gradient(135deg, #0009cc 0%, #0052cc 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 13, 255, 0.25);
+}
+
+.btn-edit {
+    background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.btn-edit:hover {
+    background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(59, 130, 246, 0.25);
+}
+
+.btn-delete {
+    background: linear-gradient(135deg, #EF4444 0%, #F87171 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+.btn-delete:hover {
+    background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(239, 68, 68, 0.25);
+}
+
+.note-card .card-title {
+    color: #2d3748;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.note-card .card-body {
+    padding: 1.5rem;
+    background: white;
+}
+
+.note-card .card-text {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.note-card .file-section {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.note-card .file-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.note-card .file-icon {
+    font-size: 1.5rem;
+    color: #4a5568;
+}
+
+.note-card .file-details {
+    flex: 1;
+}
+
+.note-card .file-name {
+    margin: 0;
+    font-weight: 500;
+    color: #2d3748;
+}
+
+.note-card .file-type {
+    color: #718096;
+    font-size: 0.875rem;
+}
+
+.note-card .card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.btn-download {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-download:hover {
+    background-color: #45a049;
+}
+
+.btn-edit {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+    background-color: #1976D2;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.btn-delete:hover {
+    background-color: #d32f2f;
+}
+
+.timestamp {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #adb5bd;
+    margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+    color: #6c757d;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .notes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .upload-container {
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .upload-container .d-flex {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .new-note-btn {
+        width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
