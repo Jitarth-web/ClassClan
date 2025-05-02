@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="description" content="The National Institute of Technology , Delhi 
+    An Autonomous Institute under the aegis of Ministry of Education , which has been vital in setting up the standard of brilliance.">
+    <meta name="keywords" content="National Institute of Technology, Delhi">
+    <meta name="author" content="aayush anand">
+
+    <title>National Institute of Technology,Delhi</title>
+    
+    <link rel="stylesheet" href="/static/css/main_style.css">
+
+    <link rel="shortcut icon" href="/static/image/download.png" type="image/png">
+</head>
+<body>
+    
+    <section class="header">
+        <nav>
+            <a href="front.html"><img src="/static/image/nitlogo.png" id="logo-img"></a>
+
+            <div class="nav-links" id="navLinks">
+
+                <span class="icon" onclick="hidemenu()">&#10005;</span>
+                <ul>
+                    <li><a href="front.html">Home</a></li>
+                    
+                </ul>
+            </div> 
+            <span class="icon" onclick="showmenu()">&#9776;</span>
+        </nav>
+       
+        <div class="text-box">
+            <h1>National Institute of Technology, Delhi </h1>
+            <p>"Where Innovation Meets Excellence — Shaping the Future at NIT Delhi."</p>
+            
+            <a href="{{ url_for('login') }}" class="hero-btn">Student Login</a>
+
+
+        </div>
+    </section>
+
+    <!--Course of Collage-->
+
+    <section class="course" id="course_call">
+        <h1>Courses We Offer</h1>
+        <p>At NIT Delhi, we provide a wide range of academic programs designed to nurture innovation and technical excellence.</p>
+    
+        <div class="row">
+            <!-- B.Tech Section -->
+            <div class="course-col">
+                <h2>B.Tech (Bachelor of Technology)</h2>
+                <p>A four-year undergraduate program focusing on foundational and advanced engineering principles across various specializations:</p>
+                <ul>
+                    <li><strong>Computer Science & Engineering (CSE):</strong> Emphasis on algorithms, software development, AI, and machine learning.</li>
+                    <li><strong>Electronics & Communication Engineering (ECE):</strong> Covers embedded systems, VLSI, communication networks, and signal processing.</li>
+                    <li><strong>Mechanical Engineering:</strong> Focus on thermal systems, manufacturing, robotics, and design engineering.</li>
+                    <li><strong>Civil Engineering:</strong> Study of infrastructure, construction technology, and environmental engineering.</li>
+                    <li><strong>Artificial Intelligence & Data Science (AI&DS):</strong> Integration of AI, big data, data mining, and analytics.</li>
+                    <li><strong>Aerospace Engineering:</strong> Exploration of flight mechanics, aerodynamics, and space technologies.</li>
+                    <li><strong>VLSI Design:</strong> Specialized in semiconductor devices, chip design, and nanoelectronics.</li>
+                </ul>
+            </div>
+    
+            <!-- M.Tech Section -->
+            <div class="course-col">
+                <h2>M.Tech (Master of Technology)</h2>
+                <p>A two-year postgraduate program focused on in-depth technical knowledge and research skills in specific engineering domains such as CSE, ECE, and VLSI Design.</p>
+            </div>
+    
+            <!-- Ph.D. Section -->
+            <div class="course-col">
+                <h2>Ph.D. Programs</h2>
+                <p>Research-intensive doctoral programs offered across departments, encouraging innovation and contribution to scientific and industrial advancement.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!--Campus Section-->
+
+    <section class="campus">
+        <h1> Our Campus</h1>
+        <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quisquam atque non voluptate</p> -->
+
+            <div class="row">
+                <div class="campus-col">
+                    <img src="/static/image/cm1.jpeg" alt="">
+                    <div class="layer">
+                        <h3>Environment</h3>
+                    </div>
+                </div>
+
+                <div class="campus-col">
+                    <img src="/static/image/cm2.jpeg" alt="">
+                    <div class="layer">
+                        <h3>Community</h3>
+                    </div>
+                </div>
+
+                <div class="campus-col">
+                    <img src="/static/image/cm3.jpeg" alt="">
+                    <div class="layer">
+                        <h3>Education</h3>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!--Facilities Section-->
+
+    <section class="facilities">
+        <h1> Our facilities</h1>
+        <p>Facilities provide for Students by Gokul Global University</p>
+
+        <div class="row">
+            <div class="facilities-col">
+                <img src="/static/image/canteen.jpeg" alt="">
+                <h3>Canteen</h3>
+                <p>The objective of the Canteen and meal service is to protect by reducing the risk of foodborne illness, with proper sanitary conditions.</p>
+            </div>
+
+            <div class="facilities-col">
+                <img src="/static/image/auditorium.jpeg" alt="">
+                <h3>Auditorium</h3>
+                <p>The college is having a huge indoor auditorium with a professionally-deployed acoustic system and a seating capacity of about 200 people.</p>
+            </div>
+
+            <div class="facilities-col">
+                <img src="/static/image/hostel.jpeg" alt="">
+                <h3>Hostel</h3>
+                <p>hostel consists of a separate mess, administrative office, warden quarter. In addition to well furnished rooms.</p>
+            </div>
+        </div>
+        </section>
+
+        <!--Call To Action Section-->
+
+        <section class="ctn">
+            <h1> &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h1>
+        </section>
+
+         <!--Footer-->
+         <section class="footer">
+             <h4>About Us</h4>
+            <p>The National Institute of Technology, Delhi  provide one of the earliest form of technical studies,
+                which has been vital in setting up the standard of brilliance.</p>
+             <p id="copyright"> &#10084; </p>
+         </section>
+         
+    <!--Javascript is Start-->
+    <script src="/static/javascript/main_script.js"></script>
+
+
+</body>
+</html>

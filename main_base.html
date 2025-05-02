@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIT Delhi Student Portal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/social.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/attendance_style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+
+            <div class="profile-section">
+                <div class="profile-image-container">
+                    <img src="{{ url_for('static', filename='uploads/' + (current_user.profile_image or 'default_profile.png')) }}" alt="Profile" class="profile-image">
+                    <form action="{{ url_for('upload_profile_image') }}" method="POST" enctype="multipart/form-data" id="profile-form">
+                        <label for="profile_image" class="upload-label">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                        <input type="file" id="profile_image" name="profile_image" style="display: none;" accept="image/*" onchange="this.form.submit()">
+                    </form>
+                </div>
+                <div class="profile-info">
+                    <div class="welcome-text">Welcome</div>
+                    <div class="user-email">{{ current_user.username }}</div>
+                </div>
+            </div>
+
+            <style>
+                .profile-section {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
+                    padding: 15px 10px;
+                    width: 100%;
+                    margin: 0;
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                    margin-bottom: 20px;
+                }
+                .profile-image-container {
+                    position: relative;
+                    margin: 15px auto;
+                    width: 80px;
+                    height: 80px;
+                }
+                .profile-image {
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    border: 2px solid #fff;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    transition: transform 0.2s;
+                }
+                .profile-image:hover {
+                    transform: scale(1.05);
+                }
+                .upload-label {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    background: #5E2495;
+                    color: white;
+                    width: 25px;
+                    height: 25px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    transition: all 0.3s;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                    font-size: 12px;
+                }
+                .upload-label:hover {
+                    background: #4A1C76;
+                }
+                .profile-info {
+                    padding: 5px;
+                    text-align: center;
+                    width: 100%;
+                    margin: 0;
+                    overflow: visible;
+                }
+                .sidebar-header {
+                    padding: 0;
+                    border-bottom: 1px solid rgba(255,255,255,0.1);
+                    text-align: center;
+                    width: 100%;
+                    margin: 0;
+                }
+                .user-email {
+                    font-size: 13px;
+                    margin-top: 8px;
+                    color: rgba(255,255,255,0.95);
+                    padding: 0;
+                    width: 100%;
+                    text-align: center;
+                    white-space: nowrap;
+                    overflow: visible;
+                }
+                .welcome-text {
+                    font-size: 18px;
+                    font-weight: bold;
+                    margin-bottom: 6px;
+                    color: white;
+                    letter-spacing: 0.5px;
+                }
+                .top-header {
+                    background-color: #4A1C76;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    width: 100%;
+                    z-index: 1000;
+                    height: 0px;
+                    display: none;
+                    padding: 0;
+                    margin: 0;
+                    border: none;
+                    border-bottom: none;
+                }
+
+                .wrapper {
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    outline: none;
+                }
+                .sidebar {
+                    height: calc(100% - 80px);
+                    width: 400px;
+                    position: fixed;
+                    top: 80px;
+                    left: 0;
+                    background-color: #4A1C76;
+                    overflow-x: visible;
+                    color: white;
+                    margin: 0;
+                    padding: 0;
+                }
+                body {
+                    margin: 0;
+                    padding: 0;
+                    font-family: Arial, sans-serif;
+                    background-color: #f4f4f4;
+                }
+                .main-content {
+                    margin-left: 400px;
+                    padding: 20px;
+                    background-color: white;
+                    min-height: 100vh;
+                    margin-top: 0;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                }
+            </style>
+
+            <ul class="nav flex-column components p-3" style="margin-top: 30px;">
+                <li class="nav-item">
+                    <a class="nav-link text-white {% if active_page == 'attendance' %}active{% endif %}" href="{{ url_for('home') }}">
+                        <i class="fas fa-calendar-check me-2"></i>Attendance Tracker
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white {% if active_page == 'social' %}active{% endif %}" href="{{ url_for('social_dashboard') }}">
+                        <i class="fas fa-users me-2"></i>Campus Community
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white {% if active_page == 'notes' %}active{% endif %}" href="{{ url_for('notes_dashboard') }}">
+                        <i class="fas fa-sticky-note me-2"></i>Notes
+                    </a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item mt-auto">
+                    <a class="nav-link text-white" href="{{ url_for('logout') }}">
+                        <i class="fas fa-sign-out-alt me-2"></i>Logout
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+
+        <!-- Floating Wordle Button -->
+        <div class="floating-wordle">
+            <a href="{{ url_for('wordle') }}" class="wordle-link" title="Play Wordle">
+                <img src="{{ url_for('static', filename='image/logo.png') }}" alt="Wordle" class="wordle-logo">
+                <span>Play Wordle</span>
+            </a>
+        </div>
+
+        <!-- Add this style section -->
+        <style>
+            .floating-wordle {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1000;
+            }
+            .wordle-link {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                padding: 8px 20px;
+                background: #ffffff;
+                color: #333333;
+                text-decoration: none;
+                border-radius: 50px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+            .wordle-link:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                background: #f8f9fa;
+                color: #000000;
+            }
+            .wordle-logo {
+                width: 32px;
+                height: 32px;
+                object-fit: contain;
+                border-radius: 6px;
+            }
+            .wordle-link span {
+                font-weight: 500;
+            }
+        </style>
+
+        <!-- Page Content -->
+        <div id="content" class="p-4">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='javascript/main_script.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

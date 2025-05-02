@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body text-center p-5">
+                    <div class="display-4 mb-4" style="color: var(--primary-purple);">
+                        <i class="fas fa-hand-wave mb-3"></i>
+                        <h2>Welcome, {{ current_user.username }}!</h2>
+                    </div>
+                    <p class="lead text-muted mb-4">You've reached a new section of our application.</p>
+                    <div class="row mt-5">
+                        <div class="col-md-4">
+                            <div class="feature-box p-3">
+                                <i class="fas fa-star mb-3" style="color: var(--secondary-purple); font-size: 2rem;"></i>
+                                <h5>Feature One</h5>
+                                <p class="small text-muted">Coming soon...</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box p-3">
+                                <i class="fas fa-magic mb-3" style="color: var(--secondary-purple); font-size: 2rem;"></i>
+                                <h5>Feature Two</h5>
+                                <p class="small text-muted">Coming soon...</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="feature-box p-3">
+                                <i class="fas fa-rocket mb-3" style="color: var(--secondary-purple); font-size: 2rem;"></i>
+                                <h5>Feature Three</h5>
+                                <p class="small text-muted">Coming soon...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.feature-box {
+    border-radius: 10px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.feature-box:hover {
+    background-color: var(--light-purple);
+    transform: translateY(-5px);
+}
+
+.display-4 i {
+    font-size: 3rem;
+    color: var(--secondary-purple);
+    margin-bottom: 1rem;
+    display: block;
+}
+</style>
+{% endblock %}
